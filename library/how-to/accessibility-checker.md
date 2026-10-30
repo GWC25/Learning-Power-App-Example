@@ -90,4 +90,4 @@ Check whether you are in the app or the browser version, and use that section ab
 
 ---
 
-Part of the [Learning Power App example](https://gwc25.github.io/learning-power-app-example/app/). In SharePoint, this file sits in the Resource Files library and the app opens it with `Launch()`.
+Part of the [Learning Power App example](https://gwc25.github.io/Learning-Power-App-Example/app/). In SharePoint, this file sits in the Resource Files library and the app opens it with `Launch()`.

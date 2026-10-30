@@ -20,4 +20,4 @@ A recording lets learners revisit an explanation at their own pace instead of re
 
 ---
 
-Part of the [Learning Power App example](https://gwc25.github.io/learning-power-app-example/app/). In SharePoint, this file sits in the Resource Files library and the app opens it with `Launch()`.
+Part of the [Learning Power App example](https://gwc25.github.io/Learning-Power-App-Example/app/). In SharePoint, this file sits in the Resource Files library and the app opens it with `Launch()`.

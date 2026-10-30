@@ -30,4 +30,4 @@ Text that does not stand out from its background is hard or impossible to read. 
 
 ---
 
-Part of the [Learning Power App example](https://gwc25.github.io/learning-power-app-example/app/). In SharePoint, this file sits in the Resource Files library and the app opens it with `Launch()`.
+Part of the [Learning Power App example](https://gwc25.github.io/Learning-Power-App-Example/app/). In SharePoint, this file sits in the Resource Files library and the app opens it with `Launch()`.

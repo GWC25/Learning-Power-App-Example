@@ -32,4 +32,4 @@ Learners should be able to open your slides and handouts, but never change or de
 
 ---
 
-Part of the [Learning Power App example](https://gwc25.github.io/learning-power-app-example/app/). In SharePoint, this file sits in the Resource Files library and the app opens it with `Launch()`.
+Part of the [Learning Power App example](https://gwc25.github.io/Learning-Power-App-Example/app/). In SharePoint, this file sits in the Resource Files library and the app opens it with `Launch()`.

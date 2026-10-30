@@ -22,4 +22,4 @@ It means a learner can always find the most important resource for a channel, li
 
 ---
 
-Part of the [Learning Power App example](https://gwc25.github.io/learning-power-app-example/app/). In SharePoint, this file sits in the Resource Files library and the app opens it with `Launch()`.
+Part of the [Learning Power App example](https://gwc25.github.io/Learning-Power-App-Example/app/). In SharePoint, this file sits in the Resource Files library and the app opens it with `Launch()`.

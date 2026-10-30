@@ -14,8 +14,8 @@ no "simply", "just", "obviously" or "of course", one warm line at most.
 No personal names or initials: this repository is public.
 """
 
-BASE = "https://gwc25.github.io/learning-power-app-example"
-REPO = "https://github.com/GWC25/learning-power-app-example/blob/main"
+BASE = "https://gwc25.github.io/Learning-Power-App-Example"
+REPO = "https://github.com/GWC25/Learning-Power-App-Example/blob/main"
 
 LEVELS = ["Foundations", "Inclusion", "Innovation"]
 CONTEXTS = ["Any context", "Theory delivery", "Practical / workshop",

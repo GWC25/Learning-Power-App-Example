@@ -2,7 +2,7 @@
 
 A working model of the Learning Studio rebuilt on SharePoint, with a Power Apps canvas app as the way in.
 
-**[Open the app mockup](https://gwc25.github.io/learning-power-app-example/app/)** · **[How to build it in SharePoint](BUILD.md)**
+**[Open the app mockup](https://gwc25.github.io/Learning-Power-App-Example/app/)** · **[How to build it in SharePoint](BUILD.md)**
 
 ## What it does
 

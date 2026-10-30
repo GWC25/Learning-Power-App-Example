@@ -188,7 +188,7 @@ footer{color:var(--muted);font-size:.88rem;padding:6px 0 34px}
 
 <div class="aid" role="region" aria-label="About this mockup">
   <div class="wrap">
-    <p>Mockup of a Power Apps canvas app on a SharePoint page. Every element is a standard Power Apps control. <a href="https://github.com/GWC25/learning-power-app-example">How it is built</a></p>
+    <p>Mockup of a Power Apps canvas app on a SharePoint page. Every element is a standard Power Apps control. <a href="https://github.com/GWC25/Learning-Power-App-Example">How it is built</a></p>
     <label><input type="checkbox" id="ctlToggle"> Show Power Apps control names</label>
   </div>
 </div>
@@ -499,7 +499,7 @@ function render(focusSel){
   const body={home:scrHome,finder:scrFinder,browse:scrBrowse,blocks:scrBlocks,card:scrCard}[st.scr]();
   const scrName='scr'+st.scr[0].toUpperCase()+st.scr.slice(1);
   app.innerHTML=nav()+`<div class="scr">${tag(scrName+' · Screen')}${body}</div>`;
-  notes.innerHTML=`<p>Screen: <strong>${scrName}</strong>. Data comes from the SharePoint lists in the <a href="https://github.com/GWC25/learning-power-app-example/tree/main/lists">lists folder</a>.</p><pre><code>${esc(NOTES[st.scr])}</code></pre>`;
+  notes.innerHTML=`<p>Screen: <strong>${scrName}</strong>. Data comes from the SharePoint lists in the <a href="https://github.com/GWC25/Learning-Power-App-Example/tree/main/lists">lists folder</a>.</p><pre><code>${esc(NOTES[st.scr])}</code></pre>`;
   if(!first){const el=focusSel?app.querySelector(focusSel):document.getElementById('scrH'); if(el) el.focus();}
   first=false;
 }

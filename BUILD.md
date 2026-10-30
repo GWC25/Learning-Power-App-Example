@@ -1,6 +1,6 @@
 # Building the Learning Studio in SharePoint and Power Apps
 
-This repository is a working model of the SharePoint build. Every folder maps to something you create in SharePoint, and every screen in the [app mockup](https://gwc25.github.io/learning-power-app-example/app/) uses only standard Power Apps controls. Turn on **Show Power Apps control names** in the mockup to see which control each element is. Open **Build notes for this screen** under the app to see its Power Fx.
+This repository is a working model of the SharePoint build. Every folder maps to something you create in SharePoint, and every screen in the [app mockup](https://gwc25.github.io/Learning-Power-App-Example/app/) uses only standard Power Apps controls. Turn on **Show Power Apps control names** in the mockup to see which control each element is. Open **Build notes for this screen** under the app to see its Power Fx.
 
 | In this repository | In SharePoint and Power Apps |
 |---|---|
