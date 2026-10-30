@@ -134,6 +134,8 @@ legend{font-weight:700;font-size:1.1rem;margin:0 0 8px;padding:0}
 .blocks li{border:1px solid var(--border-soft);border-radius:var(--radius);padding:12px 14px;background:var(--surface);display:flex;flex-direction:column;gap:8px}
 .blocks h4{margin:0}
 .blocks p{margin:0;flex:1}
+.demo-note{background:var(--note);color:var(--note-ink);border:1px dashed var(--note-ink);border-radius:var(--radius);padding:10px 14px;margin:0 0 12px}
+.demo-note code{font-size:.9em}
 .note{background:var(--note);color:var(--note-ink);border-radius:var(--radius);padding:10px 14px;margin:16px 0 0}
 
 /* Card screen */
@@ -229,6 +231,11 @@ const tag=t=>`<span class="tag" aria-hidden="true">${t}</span>`;
 const cardById=id=>DATA.cards.find(c=>c.id===id);
 const blockById=id=>DATA.blocks.find(b=>b.id===id);
 const sitById=id=>DATA.situations.find(s=>s.id===id);
+// Demo only: Word files open in Microsoft's free Office viewer, because GitHub Pages cannot open them in Word for the web.
+// In SharePoint the app uses Launch(ThisItem.URL) and the file opens in Word for the web for anyone signed in.
+const isDoc=u=>/\.docx$/i.test(u);
+const viewUrl=u=>isDoc(u)?'https://view.officeapps.live.com/op/view.aspx?src='+encodeURIComponent(u):u;
+const extLink=(u,label)=>`<a href="${viewUrl(u)}" target="_blank" rel="noopener">${label}<span class="sr-only"> (${isDoc(u)?'opens a Word document in a new tab':'opens in a new tab'})</span><span aria-hidden="true"> ↗</span></a>`;
 const badge=l=>`<span class="badge lv-${l}">${l}</span>`;
 
 function results(){
@@ -345,7 +352,7 @@ function videoBlock(c){
     : `<video controls preload="metadata" aria-label="Video: ${esc(v.title)} (no sound)"><source src="${v.url}" type="video/mp4"></video>`;
   return `<div>${tag(c.video.source==='YouTube'?'vidYouTube · Video (Media: VideoLink)':'strLibrary · Stream (preview)')}<div class="video">${player}</div>
     <p class="vidcap">${tag('lblVideoCredit · Label')}${esc(v.title)} · ${esc(v.channel)}${v.source==='YouTube'?' · YouTube, captions available in the player':''}</p>
-    ${v.note?`<p class="vidnote">${tag('lblVideoNote · Label')}${esc(v.note)} ${tag('btnTranscript · Button (Launch)')}<a href="${v.transcript}">Open the text alternative</a></p>`:''}</div>`;
+    ${v.note?`<p class="vidnote">${tag('lblVideoNote · Label')}${esc(v.note)} ${tag('btnTranscript · Button (Launch)')}${extLink(v.transcript,'Open the text alternative')}</p>`:''}</div>`;
 }
 
 function scrCard(){
@@ -392,7 +399,8 @@ function scrCard(){
     ${tag('galSupports · Gallery')}<ul class="gal">${c.supports.map(id=>tile(cardById(id))).join('')}</ul>`:''}
 
   <h3>${tag('lblLinksHead · Label (Role: Heading 3)')}Guides, research and further reading</h3>
-  ${tag('galLinks · Gallery (Items: Card Links)')}<ul class="links">${links.map(l=>`<li><span class="ltype">${l.type}</span>${l.url?`<a href="${l.url}">${esc(l.title)}</a>`:`<span>${esc(l.title)}</span>`}</li>`).join('')}</ul>
+  ${c.links.some(l=>isDoc(l.url))?`<p class="demo-note" role="note"><strong>About this demo:</strong> how-to guides open as Word documents in Microsoft's free Office viewer, in a new tab. In the SharePoint build, the same button uses <code>Launch()</code> and the guide opens in Word for the web from the Resource Files library, for anyone signed in to the college.</p>`:''}
+  ${tag('galLinks · Gallery (Items: Card Links)')}<ul class="links">${links.map(l=>`<li><span class="ltype">${l.type}</span>${l.url?extLink(l.url,esc(l.title)):`<span>${esc(l.title)}</span>`}</li>`).join('')}</ul>
 
   ${(down||up)?`<h3>${tag('lblNextHead · Label (Role: Heading 3)')}Move through the pyramid</h3><div class="nextrow">
     ${down?`${tag('btnStepDown · Button')}<button class="btn sec" data-open="${down.id}"><small>Step back to ${down.level}</small>${esc(down.title)}</button>`:'<span></span>'}

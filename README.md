@@ -33,7 +33,8 @@ Pedagogy draws on Rosenshine's Principles of Instruction, Universal Design for L
 |---|---|
 | `lists/` | The five SharePoint lists, as CSV files ready to import |
 | `library/videos/` | Videos in the Resource Files library |
-| `library/how-to/` | How-to guides in the Resource Files library |
+| `library/guides/` | How-to guides in the Resource Files library (Word documents) |
+| `library/how-to/` | The Markdown source for those guides |
 | `app/` | The canvas app (mockup) |
 | `scripts/` | The single content source and the build script |
 
@@ -45,7 +46,9 @@ All content lives in `scripts/content.py`. Edit it, then run:
 python3 scripts/build.py
 ```
 
-This regenerates `lists/*.csv` and `app/index.html`. Do not edit those files by hand. The how-to guides in `library/how-to/` are edited directly.
+This regenerates `lists/*.csv` and `app/index.html`. Do not edit those files by hand. The how-to guides are edited in `library/how-to/`, then rebuilt as Word documents with `node scripts/build_guides.js`.
+
+In the online demo, Word guides open in Microsoft's free Office viewer in a new tab, and the app shows a note saying so. In SharePoint they open in Word for the web through `Launch()`.
 
 ## Videos
 

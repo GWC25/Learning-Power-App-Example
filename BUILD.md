@@ -10,7 +10,8 @@ This repository is a working model of the SharePoint build. Every folder maps to
 | `lists/CardSteps.csv` | List: **Card Steps** (one row per step, four lenses per row) |
 | `lists/CardLinks.csv` | List: **Card Links** (guides, research and further reading) |
 | `library/videos/` | **Resource Files** library, Videos folder (played through Stream) |
-| `library/how-to/` | **Resource Files** library, How-to guides folder |
+| `library/guides/` | **Resource Files** library, How-to guides folder (Word documents) |
+| `library/how-to/` | The same guides as Markdown, the source the Word files are built from |
 | `app/index.html` | The canvas app, embedded on one SharePoint page |
 
 Nothing in the app needs editing to add a resource. You add rows to the lists and files to the library.
@@ -23,7 +24,7 @@ Nothing in the app needs editing to add a resource. You add rows to the lists an
 2. Create a document library called **Resource Files**, with two folders: **Videos** and **How-to guides**.
 3. Upload the seven videos from `library/videos/`. Every video stored in SharePoint opens in Stream.
 4. For each video, open it, select **Share**, then **Embed code**. Copy the URL from `https://` up to and including the `UniqueId=` value. You need it in step 3.
-5. Turn each guide in `library/how-to/` into a Word document (or a SharePoint page). Use real heading styles and run **Review**, **Check Accessibility** before saving.
+5. Upload the Word guides from `library/guides/` to the How-to guides folder. They are already built with real heading styles, numbered lists and UK English set as the language. Open one and run **Review**, **Check Accessibility** as a final check.
 
 The seven library videos have no sound. Their how-to guide is the text alternative, so each video's row must link to its guide (see `TranscriptLink`).
 
@@ -53,7 +54,9 @@ For each CSV in `lists/`: in the site, select **New**, then **List**, then **Fro
 Then update the links that point at GitHub so they point at SharePoint:
 
 - In **Resource Cards**, for rows where VideoSource is **Library**, paste the Stream embed URL into **VideoLink**, and the guide's SharePoint link into **TranscriptLink**.
-- In **Card Links**, replace each `github.com/.../library/how-to/...` URL with the SharePoint link to that guide.
+- In **Card Links**, replace each `gwc25.github.io/.../library/guides/...` URL with the SharePoint link to that guide.
+
+In the online demo, guides open in Microsoft's free Office viewer, because GitHub Pages cannot open Word for the web. In SharePoint you do not need the viewer: `Launch(ThisItem.URL)` opens the file in Word for the web for anyone signed in.
 
 ## 3. Build the app
 

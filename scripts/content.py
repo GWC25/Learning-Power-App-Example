@@ -79,7 +79,7 @@ def yt(vid, title, channel):
 def lib(name, title):
     return {"source": "Library", "url": f"{BASE}/library/videos/{name}.mp4", "id": "",
             "title": title, "channel": "Digital Accessibility and Inclusion Day, 23 October 2026",
-            "captions": "", "transcript": f"{REPO}/library/how-to/{name}.md",
+            "captions": "", "transcript": f"{BASE}/library/guides/{name}.docx",
             "note": "This short video has no sound. Every word on screen is in the how-to guide, which is its text alternative."}
 
 R_ROSENSHINE = ("Research", "Rosenshine, B. (2012) Principles of Instruction: research-based strategies that all teachers should know. American Educator, 36(1), 12 to 19, 39.", "")
@@ -109,7 +109,7 @@ MS_PPT_SUBS = ("Microsoft guide", "Microsoft Support: Present with real-time, au
 MS_CLASSMAT = ("Microsoft guide", "Microsoft Support: Use folders to create read-only files for students", "https://support.office.com/article/Use-folders-to-create-read-only-files-for-students-or-other-team-members-0e7791d7-8c9c-4749-9bca-984289477988")
 
 def howto(name, title):
-    return ("How-to guide", title, f"{REPO}/library/how-to/{name}.md")
+    return ("How-to guide", title, f"{BASE}/library/guides/{name}.docx")
 
 CARDS = [
  # ------------------------------------------------------------ FOUNDATIONS
