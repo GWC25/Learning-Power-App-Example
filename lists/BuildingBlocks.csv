@@ -1,0 +1,16 @@
+BlockID,Level,Title,Description,SortOrder
+F2,Foundations,Explaining and modelling,"New material in small steps, with clear models and thinking aloud.",1
+F3,Foundations,Questioning the whole room,"Every learner responds, so you know who has it and who does not.",2
+F4,Foundations,Daily review and retrieval,"Short, regular recall of earlier learning, so it is not forgotten.",3
+F5,Foundations,Accessible by design,Slides and documents meet WCAG 2.2 AA before anyone sees them.,4
+F6,Foundations,An organised Teams space,Learners find material in a few clicks and cannot change it by accident.,5
+F1,Foundations,Planning and sequencing,"Lessons build in a logical order, with checkpoints along the way.",6
+I1,Inclusion,Scaffolds that fade,Support is reduced step by step until learners work independently.,1
+I2,Inclusion,Assistive technology as normal,"Read-aloud, dictation and captions are taught to everyone and used openly.",2
+I3,Inclusion,Responsive questioning,Answers change what happens next in the lesson.,3
+I4,Inclusion,Reducing cognitive overload,Clear design and one idea at a time leave room for thinking.,4
+I5,Inclusion,Choice and flexibility,More than one way to take in learning and to show it.,5
+N1,Innovation,Flipped learning,Learners meet content first; lesson time goes on applying it.,1
+N2,Innovation,Learner-led enquiry,Learners ask the questions that drive the learning.,2
+N3,Innovation,Purposeful AI,"AI improves resources and saves time, with professional judgement on every output.",3
+N4,Innovation,Real-world collaborative projects,"Learners solve real problems for real audiences, together.",4

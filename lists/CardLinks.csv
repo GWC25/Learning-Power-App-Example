@@ -1,0 +1,71 @@
+CardID,SortOrder,LinkType,Title,URL
+F-ROOM,1,How-to guide,How-to: Mini whiteboards,https://github.com/GWC25/learning-power-app-example/blob/main/library/how-to/mini-whiteboards.md
+F-ROOM,2,How-to guide,How-to: Plickers,https://github.com/GWC25/learning-power-app-example/blob/main/library/how-to/plickers.md
+F-ROOM,3,How-to guide,How-to: Microsoft Forms,https://github.com/GWC25/learning-power-app-example/blob/main/library/how-to/forms.md
+F-ROOM,4,Research,"Rosenshine, B. (2012) Principles of Instruction: research-based strategies that all teachers should know. American Educator, 36(1), 12 to 19, 39.",
+F-ROOM,5,Research,"Wiliam, D. (2011) Embedded Formative Assessment. Bloomington: Solution Tree.",
+F-ROOM,6,Explore further,"Tom Sherrington: Rosenshine Masterclass, the full series (free)",https://www.youtube.com/playlist?list=PL_WHYo5KULlfcpKvyf5fXrFEXbA6zroIk
+F-ROOM,7,Explore further,Chartered College of Teaching: Applying Rosenshine to the secondary classroom,https://my.chartered.college/early-career-hub/applying-rosenshine-to-the-secondary-classroom/
+F-REVIEW,1,How-to guide,How-to: Microsoft Forms,https://github.com/GWC25/learning-power-app-example/blob/main/library/how-to/forms.md
+F-REVIEW,2,Research,"Rosenshine, B. (2012) Principles of Instruction: research-based strategies that all teachers should know. American Educator, 36(1), 12 to 19, 39.",
+F-REVIEW,3,Research,"Roediger, H. L. and Karpicke, J. D. (2006) Test-enhanced learning. Psychological Science, 17(3), 249 to 255.",https://doi.org/10.1111/j.1467-9280.2006.01693.x
+F-REVIEW,4,Explore further,"The Learning Scientists: videos on retrieval, spacing and dual coding",https://www.learningscientists.org/videos
+F-REVIEW,5,Explore further,"Tom Sherrington: Rosenshine Masterclass IV, daily, weekly and monthly review",https://www.youtube.com/watch?v=ZkQ5DVLL4H8
+F-MODEL,1,How-to guide,How-to: Visualiser,https://github.com/GWC25/learning-power-app-example/blob/main/library/how-to/visualiser.md
+F-MODEL,2,How-to guide,How-to: Record a think-aloud video,https://github.com/GWC25/learning-power-app-example/blob/main/library/how-to/think-aloud-video.md
+F-MODEL,3,Research,"Rosenshine, B. (2012) Principles of Instruction: research-based strategies that all teachers should know. American Educator, 36(1), 12 to 19, 39.",
+F-MODEL,4,Research,"Sweller, J. (1988) Cognitive load during problem solving. Cognitive Science, 12(2), 257 to 285.",https://doi.org/10.1207/s15516709cog1202_4
+F-MODEL,5,Explore further,"Tom Sherrington: Rosenshine Masterclass captured, notes and slides (teacherhead)",https://teacherhead.com/2020/03/16/rosenshine-masterclass-captured-free-cpd/
+F-HEADINGS,1,How-to guide,How-to: Headings and styles (text alternative for the video),https://github.com/GWC25/learning-power-app-example/blob/main/library/how-to/headings-and-styles.md
+F-HEADINGS,2,How-to guide,How-to: Accessibility Checker,https://github.com/GWC25/learning-power-app-example/blob/main/library/how-to/accessibility-checker.md
+F-HEADINGS,3,Microsoft guide,Microsoft Support: Improve accessibility with the Accessibility Checker,https://support.microsoft.com/en-us/office/improve-accessibility-with-the-accessibility-checker-a16f6de0-2f39-4a2b-8bd8-5ad801426c7f
+F-HEADINGS,4,Standard,W3C: Web Content Accessibility Guidelines (WCAG) 2.2,https://www.w3.org/TR/WCAG22/
+F-ORDER,1,How-to guide,How-to: PowerPoint reading order (text alternative for the video),https://github.com/GWC25/learning-power-app-example/blob/main/library/how-to/reading-order.md
+F-ORDER,2,Microsoft guide,Microsoft Support: Improve accessibility with the Accessibility Checker,https://support.microsoft.com/en-us/office/improve-accessibility-with-the-accessibility-checker-a16f6de0-2f39-4a2b-8bd8-5ad801426c7f
+F-ORDER,3,Standard,W3C: Web Content Accessibility Guidelines (WCAG) 2.2,https://www.w3.org/TR/WCAG22/
+F-ALT,1,How-to guide,How-to: Alt text (text alternative for the video),https://github.com/GWC25/learning-power-app-example/blob/main/library/how-to/alt-text.md
+F-ALT,2,Microsoft guide,Microsoft Support: Improve accessibility with the Accessibility Checker,https://support.microsoft.com/en-us/office/improve-accessibility-with-the-accessibility-checker-a16f6de0-2f39-4a2b-8bd8-5ad801426c7f
+F-ALT,3,Standard,W3C: Web Content Accessibility Guidelines (WCAG) 2.2,https://www.w3.org/TR/WCAG22/
+F-TEAMS,1,How-to guide,"How-to: Class Materials, sharing and permissions",https://github.com/GWC25/learning-power-app-example/blob/main/library/how-to/class-materials-and-sharing.md
+F-TEAMS,2,How-to guide,How-to: Pinning posts and tabs,https://github.com/GWC25/learning-power-app-example/blob/main/library/how-to/pinning-posts.md
+F-TEAMS,3,How-to guide,How-to: Channels by unit,https://github.com/GWC25/learning-power-app-example/blob/main/library/how-to/channel-structure.md
+F-TEAMS,4,Microsoft guide,Microsoft Support: Use folders to create read-only files for students,https://support.office.com/article/Use-folders-to-create-read-only-files-for-students-or-other-team-members-0e7791d7-8c9c-4749-9bca-984289477988
+I-HINGE,1,How-to guide,How-to: Microsoft Forms,https://github.com/GWC25/learning-power-app-example/blob/main/library/how-to/forms.md
+I-HINGE,2,How-to guide,How-to: Plickers,https://github.com/GWC25/learning-power-app-example/blob/main/library/how-to/plickers.md
+I-HINGE,3,Research,"Rosenshine, B. (2012) Principles of Instruction: research-based strategies that all teachers should know. American Educator, 36(1), 12 to 19, 39.",
+I-HINGE,4,Research,"Wiliam, D. (2011) Embedded Formative Assessment. Bloomington: Solution Tree.",
+I-HINGE,5,Explore further,"Tom Sherrington: Rosenshine Masterclass, the full series (free)",https://www.youtube.com/playlist?list=PL_WHYo5KULlfcpKvyf5fXrFEXbA6zroIk
+I-FADE,1,Research,"Sweller, J. and Cooper, G. A. (1985) The use of worked examples as a substitute for problem solving in learning algebra. Cognition and Instruction, 2(1), 59 to 89.",https://doi.org/10.1207/s1532690xci0201_3
+I-FADE,2,Research,"Kalyuga, S., Ayres, P., Chandler, P. and Sweller, J. (2003) The expertise reversal effect. Educational Psychologist, 38(1), 23 to 31.",https://doi.org/10.1207/S15326985EP3801_4
+I-FADE,3,Research,"Rosenshine, B. (2012) Principles of Instruction: research-based strategies that all teachers should know. American Educator, 36(1), 12 to 19, 39.",
+I-FADE,4,Explore further,"Sherrington, T. (2019) Rosenshine's Principles in Action. Woodbridge: John Catt.",
+I-RECAP,1,How-to guide,How-to: Screen recording,https://github.com/GWC25/learning-power-app-example/blob/main/library/how-to/screen-recording.md
+I-RECAP,2,How-to guide,How-to: Captions and narration,https://github.com/GWC25/learning-power-app-example/blob/main/library/how-to/captions-and-narration.md
+I-RECAP,3,Research,"Rosenshine, B. (2012) Principles of Instruction: research-based strategies that all teachers should know. American Educator, 36(1), 12 to 19, 39.",
+I-RECAP,4,Research,CAST (2024) Universal Design for Learning Guidelines version 3.0,https://udlguidelines.cast.org
+I-IR,1,How-to guide,How-to: Immersive Reader (text alternative for the video),https://github.com/GWC25/learning-power-app-example/blob/main/library/how-to/immersive-reader.md
+I-IR,2,Microsoft guide,Microsoft Support: Use Immersive Reader in Word,https://support.microsoft.com/en-us/accessibility/word/use-immersive-reader-in-word
+I-IR,3,Microsoft guide,Microsoft Support: Use Immersive Reader in Microsoft Teams,https://support.microsoft.com/en-us/topic/use-immersive-reader-in-microsoft-teams-a700c0d0-bc53-4696-a94d-4fbc86ac7a9a
+I-IR,4,Research,CAST (2024) Universal Design for Learning Guidelines version 3.0,https://udlguidelines.cast.org
+I-DICTATE,1,How-to guide,How-to: Dictate (text alternative for the video),https://github.com/GWC25/learning-power-app-example/blob/main/library/how-to/dictate.md
+I-DICTATE,2,Microsoft guide,Microsoft Support: Dictate your documents in Word,https://support.microsoft.com/en-us/word/dictate-your-documents-in-word
+I-DICTATE,3,Research,CAST (2024) Universal Design for Learning Guidelines version 3.0,https://udlguidelines.cast.org
+I-CAPTIONS,1,How-to guide,How-to: Captions and narration (text alternative for the video),https://github.com/GWC25/learning-power-app-example/blob/main/library/how-to/captions-and-narration.md
+I-CAPTIONS,2,Microsoft guide,Microsoft Support: Use live captions in Microsoft Teams meetings,https://support.microsoft.com/en-us/office/use-live-captions-in-microsoft-teams-meetings-4be2d304-f675-4b57-8347-cbd000a21260
+I-CAPTIONS,3,Microsoft guide,"Microsoft Support: Present with real-time, automatic captions or subtitles in PowerPoint",https://support.microsoft.com/en-us/powerpoint/present-with-real-time-automatic-captions-or-subtitles-in-powerpoint
+I-CAPTIONS,4,Standard,W3C: Web Content Accessibility Guidelines (WCAG) 2.2,https://www.w3.org/TR/WCAG22/
+I-OVERLOAD,1,How-to guide,How-to: Colour contrast (text alternative for the video),https://github.com/GWC25/learning-power-app-example/blob/main/library/how-to/colour-contrast.md
+I-OVERLOAD,2,Research,"Sweller, J. (1988) Cognitive load during problem solving. Cognitive Science, 12(2), 257 to 285.",https://doi.org/10.1207/s15516709cog1202_4
+I-OVERLOAD,3,Research,"Mayer, R. E. (2009) Multimedia Learning. 2nd edn. Cambridge: Cambridge University Press.",
+I-OVERLOAD,4,Standard,W3C: Web Content Accessibility Guidelines (WCAG) 2.2,https://www.w3.org/TR/WCAG22/
+I-OVERLOAD,5,Standard,"W3C: Understanding success criterion 1.4.3, Contrast (Minimum)",https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html
+I-UDL,1,Research,CAST (2024) Universal Design for Learning Guidelines version 3.0,https://udlguidelines.cast.org
+I-UDL,2,Explore further,CAST: UDL at a Glance video,https://www.youtube.com/watch?v=U1B6yQXsr0c
+N-FLIP,1,Research,"Bergmann, J. and Sams, A. (2012) Flip Your Classroom: reach every student in every class every day. Eugene: ISTE.",
+N-FLIP,2,Research,"Rosenshine, B. (2012) Principles of Instruction: research-based strategies that all teachers should know. American Educator, 36(1), 12 to 19, 39.",
+N-FLIP,3,How-to guide,How-to: Screen recording,https://github.com/GWC25/learning-power-app-example/blob/main/library/how-to/screen-recording.md
+N-QFT,1,Research,"Rothstein, D. and Santana, L. (2011) Make Just One Change: teach students to ask their own questions. Cambridge, MA: Harvard Education Press.",
+N-QFT,2,Explore further,"The Right Question Institute, home of the Question Formulation Technique",https://rightquestion.org
+N-AI,1,How-to guide,How-to: Simplify dense text with Copilot,https://github.com/GWC25/learning-power-app-example/blob/main/library/how-to/copilot-simplify-text.md
+N-AI,2,How-to guide,How-to: Checking AI output,https://github.com/GWC25/learning-power-app-example/blob/main/library/how-to/checking-ai-output.md
+N-21CLD,1,Explore further,Microsoft Learn: 21st Century Learning Design learning path (8 modules),https://learn.microsoft.com/training/paths/21st-century-learning-design/

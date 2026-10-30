@@ -1,0 +1,10 @@
+SituationID,Title,Keywords,SortOrder
+S1,Only the same few learners answer my questions,questions questioning hands up quiet confident answer whole class,1
+S2,Learners forget what we covered last week,forget remember recall retrieval review revision memory,2
+S3,Learners get lost when I explain something new,explain explanation lost confused new demonstrate model steps,3
+S4,I'm not sure my slides and documents work for every learner,accessible accessibility slides powerpoint word documents wcag screen reader alt text headings,4
+S5,"Some learners struggle to read, write or hear the material",reading writing dyslexia hearing captions dictation immersive reader eal esol,5
+S6,"Learners can't find my resources, or change them by mistake",teams files find clicks edit delete organise share,6
+S7,I want learners to work more independently,independent independence scaffold autonomy flipped self,7
+S8,I want to try something bigger and more learner-led,project real world collaboration enquiry innovation learner-led questions,8
+S9,I want AI to save time without lowering quality,ai copilot time accessible simplify plain english,9

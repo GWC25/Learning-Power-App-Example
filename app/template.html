@@ -1,0 +1,561 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Learning Studio Power App</title>
+<meta name="description" content="A working mockup of a Power Apps canvas app on a SharePoint page: traditional and digital teaching practice, underpinned by research, built to WCAG 2.2 AA.">
+<style>
+:root{
+  --bg:#f3f2f1; --surface:#ffffff; --surface-2:#f8f7f6; --text:#201f1e; --muted:#484644;
+  --border:#8a8886; --border-soft:#d2d0ce;
+  --sp:#03787c; --sp-ink:#ffffff;
+  --brand:#1f3864; --brand-ink:#ffffff; --brand-soft:#e8edf5;
+  --focus:#000000;
+  --found:#005a70; --incl:#1d4e89; --innov:#6a2a8a; --level-ink:#ffffff;
+  --trad:#3b3a39; --trad-bg:#f3f2f1;
+  --dig:#0b5394; --dig-bg:#e8f0fa;
+  --acc:#8a3b00; --acc-bg:#fdf1e7;
+  --inc:#0b6a3a; --inc-bg:#e8f5ee;
+  --tag:#a3008f;
+  --note:#fff8e1; --note-ink:#5c4100;
+  --radius:4px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;line-height:1.5;font-size:1rem}
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px;box-shadow:0 0 0 5px #fff}
+a{color:var(--brand)}
+.wrap{max-width:1140px;margin:0 auto;padding:0 16px}
+.skip{position:absolute;left:16px;top:-80px;background:var(--brand);color:var(--brand-ink);padding:10px 14px;border-radius:var(--radius);z-index:20;font-weight:600}
+.skip:focus{top:8px}
+
+/* ---------- Mockup aid (not part of the app) ---------- */
+.aid{background:#201f1e;color:#fff;font-size:.9rem}
+.aid .wrap{display:flex;flex-wrap:wrap;gap:6px 24px;align-items:center;justify-content:space-between;padding-top:4px;padding-bottom:4px}
+.aid p{margin:0}
+.aid label{display:inline-flex;align-items:center;gap:8px;min-height:44px;cursor:pointer;font-weight:600}
+.aid input{width:20px;height:20px}
+.aid a{color:#fff}
+
+/* ---------- SharePoint page chrome ---------- */
+.suite{background:var(--sp);color:var(--sp-ink);font-weight:600;font-size:.92rem}
+.suite .wrap{padding-top:8px;padding-bottom:8px}
+.site-head{background:var(--surface);border-bottom:1px solid var(--border-soft)}
+.site-head .wrap{padding-top:12px;padding-bottom:2px}
+.site-head h1{margin:0;font-size:1.5rem;color:var(--sp)}
+.site-nav{list-style:none;margin:6px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:22px;font-weight:600;color:var(--muted)}
+.site-nav li{padding:6px 0}
+.site-nav li[aria-current]{color:var(--text);border-bottom:3px solid var(--sp)}
+.wp-label{font-size:.78rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin:18px 0 6px}
+
+/* ---------- The canvas app ---------- */
+.app{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+.hdr{background:var(--brand);color:var(--brand-ink);padding:8px 16px;display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;justify-content:space-between}
+.appname{font-weight:700;font-size:1.1rem}
+.navgal{display:flex;flex-wrap:wrap;gap:6px;list-style:none;margin:0;padding:0}
+.navgal button{background:transparent;color:var(--brand-ink);border:2px solid var(--brand-ink);border-radius:var(--radius);font:inherit;font-weight:600;min-height:40px;padding:4px 12px;cursor:pointer}
+.navgal button[aria-current="page"]{background:var(--brand-ink);color:var(--brand)}
+.navgal button:focus-visible{outline-color:#fff;box-shadow:0 0 0 5px #000}
+.scr{padding:22px 20px 30px}
+@media (max-width:600px){.scr{padding:18px 14px 24px}}
+.scr h2{margin:0 0 6px;font-size:1.55rem;line-height:1.25}
+.scr h2:focus{outline:none}
+.scr h2:focus-visible{outline:3px solid var(--focus)}
+h3{font-size:1.15rem;margin:22px 0 8px}
+h4{font-size:1.02rem;margin:0 0 6px}
+.lead{font-size:1.06rem;margin:0 0 16px;max-width:75ch}
+.muted{color:var(--muted)}
+p{max-width:80ch}
+
+.btn{appearance:none;font:inherit;font-weight:600;min-height:44px;padding:8px 18px;border-radius:var(--radius);border:2px solid var(--brand);background:var(--brand);color:var(--brand-ink);cursor:pointer;text-align:center}
+.btn.sec{background:var(--surface);color:var(--brand)}
+.btn.sm{min-height:36px;padding:4px 12px;font-size:.92rem}
+.btn[disabled]{opacity:.55;cursor:not-allowed}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:flex-end}
+.field{display:flex;flex-direction:column;gap:4px;font-weight:600;font-size:.94rem;min-width:180px;flex:1}
+.field select,.field input{font:inherit;font-weight:400;min-height:44px;padding:8px 10px;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface);color:var(--text)}
+.hint{font-weight:400;color:var(--muted);font-size:.88rem}
+
+/* Home */
+.routes{list-style:none;margin:0 0 20px;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.routes li{border:1px solid var(--border-soft);border-top:6px solid var(--brand);border-radius:var(--radius);padding:16px;background:var(--surface-2);display:flex;flex-direction:column;gap:10px}
+.routes h3{margin:0;font-size:1.12rem}
+.routes p{margin:0;flex:1}
+.lenses{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.lenses li{border-left:6px solid;border-radius:0 var(--radius) var(--radius) 0;padding:10px 12px}
+.lenses strong{display:block}
+.L-trad{border-color:var(--trad)!important;background:var(--trad-bg)}
+.L-dig{border-color:var(--dig)!important;background:var(--dig-bg)}
+.L-acc{border-color:var(--acc)!important;background:var(--acc-bg)}
+.L-inc{border-color:var(--inc)!important;background:var(--inc-bg)}
+.L-trad b,.L-trad strong{color:var(--trad)} .L-dig b,.L-dig strong{color:var(--dig)} .L-acc b,.L-acc strong{color:var(--acc)} .L-inc b,.L-inc strong{color:var(--inc)}
+
+/* Level badges */
+.badge{display:inline-block;border-radius:var(--radius);padding:1px 9px;font-size:.84rem;font-weight:700;color:var(--level-ink)}
+.lv-Foundations{background:var(--found)} .lv-Inclusion{background:var(--incl)} .lv-Innovation{background:var(--innov)}
+.pill{display:inline-block;border:1px solid var(--border);border-radius:var(--radius);padding:0 8px;font-size:.84rem;font-weight:600;background:var(--surface-2)}
+.meta{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 8px;padding:0;list-style:none}
+
+/* Finder */
+.stepper{list-style:none;margin:0 0 18px;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.stepper li{border:2px solid var(--border-soft);border-radius:var(--radius);padding:4px 12px;font-weight:600;color:var(--muted)}
+.stepper li[aria-current="step"]{border-color:var(--brand);color:var(--brand);background:var(--brand-soft)}
+.stepper li.done{color:var(--text)}
+fieldset{border:0;margin:0;padding:0;min-width:0}
+legend{font-weight:700;font-size:1.1rem;margin:0 0 8px;padding:0}
+.opt{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--border);border-radius:var(--radius);padding:12px 14px;margin-bottom:8px;cursor:pointer;background:var(--surface)}
+.opt input{width:22px;height:22px;margin-top:1px;accent-color:var(--brand);flex:none}
+.opt:has(input:checked){border:2px solid var(--brand);background:var(--brand-soft)}
+.opt span small{display:block;color:var(--muted);font-weight:400}
+.err{margin:6px 0 0;font-weight:600;color:var(--note-ink)}
+.err:not(:empty){background:var(--note);padding:6px 10px;border-radius:var(--radius)}
+
+/* Results */
+.gal{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.cardtile{border:1px solid var(--border-soft);border-left:6px solid;border-radius:var(--radius);padding:14px 16px;background:var(--surface)}
+.cardtile.b-Foundations{border-left-color:var(--found)} .cardtile.b-Inclusion{border-left-color:var(--incl)} .cardtile.b-Innovation{border-left-color:var(--innov)}
+.cardtile h3{margin:4px 0 4px;font-size:1.1rem}
+.cardtile p{margin:0 0 10px}
+.filterbar{background:var(--surface-2);border:1px solid var(--border-soft);border-radius:var(--radius);padding:12px;margin:0 0 14px}
+.activefilter{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 10px}
+
+/* Building blocks */
+.pyramid{list-style:none;margin:0 auto 18px;padding:0;display:flex;flex-direction:column;align-items:center;gap:6px;max-width:560px}
+.pyramid li{width:100%;display:flex;justify-content:center}
+.pyramid button{font:inherit;font-weight:700;color:var(--level-ink);border:3px solid transparent;border-radius:var(--radius);min-height:52px;cursor:pointer;padding:6px 12px}
+.pyramid button[aria-pressed="true"]{border-color:#000;box-shadow:inset 0 0 0 3px #fff}
+.pyramid .p-Innovation{width:46%;background:var(--innov)} .pyramid .p-Inclusion{width:73%;background:var(--incl)} .pyramid .p-Foundations{width:100%;background:var(--found)}
+@media (max-width:520px){.pyramid .p-Innovation,.pyramid .p-Inclusion,.pyramid .p-Foundations{width:100%}}
+.research{border-left:5px solid var(--brand);background:var(--surface-2);padding:10px 14px;margin:0 0 16px}
+.research p{margin:0}
+.blocks{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px;list-style:none;padding:0;margin:0}
+.blocks li{border:1px solid var(--border-soft);border-radius:var(--radius);padding:12px 14px;background:var(--surface);display:flex;flex-direction:column;gap:8px}
+.blocks h4{margin:0}
+.blocks p{margin:0;flex:1}
+.note{background:var(--note);color:var(--note-ink);border-radius:var(--radius);padding:10px 14px;margin:16px 0 0}
+
+/* Card screen */
+.cardhead{border-bottom:1px solid var(--border-soft);padding-bottom:12px;margin-bottom:14px}
+.twocol{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:22px;align-items:start}
+@media (max-width:860px){.twocol{grid-template-columns:1fr}}
+.video{background:#000;border-radius:var(--radius);overflow:hidden;aspect-ratio:16/9;width:100%}
+.video iframe,.video video{width:100%;height:100%;border:0;display:block}
+.vidcap{font-size:.9rem;color:var(--muted);margin:6px 0 0}
+.vidnote{font-size:.9rem;background:var(--surface-2);border:1px solid var(--border-soft);border-radius:var(--radius);padding:8px 10px;margin:8px 0 0}
+.toggles{border:1px solid var(--border-soft);border-radius:var(--radius);padding:10px 12px;margin:18px 0 12px;background:var(--surface-2)}
+.toggles .row{gap:8px 18px;align-items:center}
+.switch{display:inline-flex;align-items:center;gap:10px;min-height:44px;background:none;border:none;font:inherit;font-weight:600;color:var(--text);cursor:pointer;padding:0 4px;border-radius:var(--radius)}
+.switch .track{width:42px;height:24px;border-radius:12px;border:2px solid var(--border);position:relative;background:var(--surface);flex:none}
+.switch .track::after{content:"";position:absolute;top:3px;left:3px;width:14px;height:14px;border-radius:50%;background:var(--border)}
+.switch[aria-checked="true"] .track{background:var(--brand);border-color:var(--brand)}
+.switch[aria-checked="true"] .track::after{left:21px;background:#fff}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:12px;counter-reset:st}
+.steps>li{border:1px solid var(--border-soft);border-radius:var(--radius);padding:12px 14px;background:var(--surface);counter-increment:st}
+.steps h4::before{content:"Step " counter(st) ". "}
+.lens{max-width:none;margin:6px 0 0;padding:7px 10px;border-left:5px solid;border-radius:0 var(--radius) var(--radius) 0}
+.lens b{margin-right:4px}
+.panel{border:1px solid var(--border-soft);border-radius:var(--radius);padding:12px 14px;background:var(--surface-2);margin:14px 0 0}
+.panel h3{margin:0 0 8px;font-size:1.08rem}
+.panel ul{margin:0;padding-left:20px}
+.panel p{margin:0 0 8px}
+.prompt{border:1px solid var(--border);border-radius:var(--radius);padding:10px 12px;background:var(--surface);white-space:pre-wrap;font-family:Consolas,"Courier New",monospace;font-size:.92rem;margin:0 0 8px}
+.status{font-weight:600;margin:8px 0 0;min-height:1.5em}
+.links{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.links li{display:grid;grid-template-columns:130px 1fr;gap:4px 12px;align-items:baseline}
+@media (max-width:600px){.links li{grid-template-columns:1fr}}
+.ltype{font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.03em;color:var(--muted);min-width:118px}
+.nextrow{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
+@media (max-width:600px){.nextrow{grid-template-columns:1fr}}
+.nextrow .btn{width:100%;text-align:left}
+.nextrow small{display:block;font-weight:400}
+
+/* Control-name tags (mockup aid only) */
+.tag{display:none}
+body.show-ctl .tag{display:inline-block;background:var(--tag);color:#fff;font:700 .72rem/1.3 Consolas,"Courier New",monospace;padding:1px 6px;border-radius:3px;margin:0 6px 4px 0;vertical-align:middle}
+
+/* Build sheet */
+.sheet{background:var(--surface);border:1px solid var(--border-soft);border-radius:var(--radius);padding:4px 16px 12px;margin:18px 0}
+.sheet summary{cursor:pointer;font-weight:700;font-size:1.08rem;min-height:44px;display:flex;align-items:center}
+pre{background:#f0eff6;color:#2b1a4a;padding:10px 12px;border-radius:var(--radius);overflow-x:auto;font-size:.84rem;white-space:pre-wrap;word-break:break-word;margin:0 0 10px}
+footer{color:var(--muted);font-size:.88rem;padding:6px 0 34px}
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#app">Skip to the Learning Studio app</a>
+
+<div class="aid" role="region" aria-label="About this mockup">
+  <div class="wrap">
+    <p>Mockup of a Power Apps canvas app on a SharePoint page. Every element is a standard Power Apps control. <a href="https://github.com/GWC25/learning-power-app-example">How it is built</a></p>
+    <label><input type="checkbox" id="ctlToggle"> Show Power Apps control names</label>
+  </div>
+</div>
+
+<header>
+<div class="suite"><div class="wrap">Weston College Group · SharePoint</div></div>
+<div class="site-head">
+  <div class="wrap">
+    <h1>Learning Studio</h1>
+    <ul class="site-nav" aria-label="Site navigation (mockup only)">
+      <li aria-current="page">Find practice</li><li>Book coaching</li><li>Assistive Technology Guide</li>
+    </ul>
+  </div>
+</div>
+</header>
+
+<main class="wrap">
+  <p class="wp-label">Power Apps web part · canvas app "Learning Studio"</p>
+  <section class="app" id="app" aria-label="Learning Studio app" tabindex="-1"></section>
+
+  <details class="sheet" id="buildSheet">
+    <summary>Build notes for this screen (Power Fx)</summary>
+    <div id="buildNotes"></div>
+  </details>
+</main>
+<footer class="wrap"><p>Example only. Resource content is drawn from the Digital Accessibility and Inclusion Day (23 October 2026) and the Digital Learning Studio. Videos are from the college's own library and the creators named on each card.</p></footer>
+
+<script>
+/*__DATA__*/
+
+const LENS=[['trad','Traditional','tglTraditional'],['dig','Digital','tglDigital'],['acc','Accessibility','tglAccessibility'],['inc','Inclusive practice','tglInclusive']];
+const app=document.getElementById('app'), notes=document.getElementById('buildNotes');
+const st={scr:'home',fStep:1,situation:'',context:'',layer:'',search:'',block:'',blockLayer:'Foundations',
+  card:null,from:'browse',lens:{trad:true,dig:true,acc:true,inc:true},showAnswer:false,copyMsg:''};
+let first=true;
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const tag=t=>`<span class="tag" aria-hidden="true">${t}</span>`;
+const cardById=id=>DATA.cards.find(c=>c.id===id);
+const blockById=id=>DATA.blocks.find(b=>b.id===id);
+const sitById=id=>DATA.situations.find(s=>s.id===id);
+const badge=l=>`<span class="badge lv-${l}">${l}</span>`;
+
+function results(){
+  const words=st.search.toLowerCase().split(/\s+/).filter(w=>w.length>2);
+  const order=DATA.levels;
+  return DATA.cards.filter(c=>
+      (!st.situation||c.situations.includes(st.situation)) &&
+      (!st.layer||c.level===st.layer) &&
+      (!st.context||c.context===st.context||c.context==='Any context') &&
+      (!st.block||c.block===st.block) &&
+      (!words.length||words.some(w=>(c.title+' '+c.summary+' '+c.kw).toLowerCase().includes(w))))
+    .sort((a,b)=>order.indexOf(a.level)-order.indexOf(b.level));
+}
+
+function nav(){
+  const items=[['home','Home'],['finder','Find by situation'],['browse','Browse practice'],['blocks','Building blocks']];
+  const cur=st.scr==='card'?st.from:st.scr;
+  return `<div class="hdr">${tag('conHeader · Container')}<span class="appname">${tag('lblAppName · Label')}Learning Studio</span>
+   <nav aria-label="App screens">${tag('galNav · Gallery of Buttons')}<ul class="navgal">${items.map(([k,t])=>`<li><button data-nav="${k}" ${cur===k?'aria-current="page"':''}>${t}</button></li>`).join('')}</ul></nav></div>`;
+}
+
+function tile(c){
+  return `<li class="cardtile b-${c.level}">
+    <ul class="meta" aria-label="Tags">${tag('lblLevel · Label')}<li>${badge(c.level)}</li><li class="pill">${c.context}</li><li class="pill">${esc(blockById(c.block).title)}</li></ul>
+    <h3>${tag('lblTitle · Label (Role: Heading 3)')}${esc(c.title)}</h3>
+    <p>${tag('lblSummary · Label')}${esc(c.summary)}</p>
+    ${tag('btnOpen · Button')}<button class="btn sm" data-open="${c.id}">Open<span class="sr-only">: ${esc(c.title)}</span></button></li>`;
+}
+
+/* ---------------- Screens ---------------- */
+function scrHome(){
+  return `<h2 id="scrH" tabindex="-1">${tag('lblWelcome · Label (Role: Heading 2)')}Find practice that works in your room</h2>
+  <p class="lead">${tag('lblIntro · Label')}Every resource starts with a teaching move and shows it four ways: in the room, with digital tools, accessibly and inclusively. They are one practice, not four, and each is underpinned by research.</p>
+  ${tag('galRoutes · Gallery')}<ul class="routes">
+    <li><h3>Find by situation</h3><p>Start from what is happening in your teaching. Three short questions take you to the right resources.</p><button class="btn" data-nav="finder">Start the finder</button></li>
+    <li><h3>Browse practice</h3><p>See every resource, and filter by layer, teaching context or keyword.</p><button class="btn" data-nav="browse">Browse practice</button></li>
+    <li><h3>Building blocks</h3><p>The pedagogy behind the pyramid: what makes up Foundations, Inclusion and Innovation, and the research behind each.</p><button class="btn" data-nav="blocks">Explore the building blocks</button></li>
+  </ul>
+  <h3>${tag('lblLensHead · Label (Role: Heading 3)')}Four lenses on every step</h3>
+  ${tag('galLenses · Gallery')}<ul class="lenses">
+    <li class="L-trad"><strong>Traditional</strong>What to do in the room, with or without technology.</li>
+    <li class="L-dig"><strong>Digital</strong>How a digital tool makes the same move faster, wider or more visible.</li>
+    <li class="L-acc"><strong>Accessibility</strong>What makes it work for learners using assistive technology, to WCAG 2.2 AA.</li>
+    <li class="L-inc"><strong>Inclusive practice</strong>How it reaches every learner, including those least likely to take part.</li>
+  </ul>
+  <p class="note">${tag('lblNote · Label')}You can switch any lens on or off on a resource. Turn off Digital to see the traditional practice on its own, or turn off Traditional to focus on the digital version.</p>`;
+}
+
+function scrFinder(){
+  const steps=['Situation','Teaching context','Layer'];
+  const stepper=`${tag('galProgress · Gallery')}<ol class="stepper" aria-label="Finder progress">${steps.map((s,i)=>`<li ${st.fStep===i+1?'aria-current="step"':''} class="${st.fStep>i+1?'done':''}">${i+1}. ${s}${st.fStep>i+1?'<span class="sr-only"> (done)</span>':''}</li>`).join('')}</ol>`;
+  let body='';
+  if(st.fStep===1){
+    body=`<fieldset aria-describedby="fErr">${tag('rdoSituation · Radio (Items: Situations list)')}<legend>What is happening in your teaching?</legend>
+      ${DATA.situations.map(s=>`<label class="opt"><input type="radio" name="sit" value="${s.id}" ${st.situation===s.id?'checked':''}><span>${esc(s.title)}</span></label>`).join('')}</fieldset>`;
+  } else if(st.fStep===2){
+    body=`<fieldset aria-describedby="fErr">${tag('rdoContext · Radio')}<legend>Where does this happen most?</legend>
+      ${DATA.contexts.map(c=>`<label class="opt"><input type="radio" name="ctx" value="${c==='Any context'?'':c}" ${(st.context||'')===(c==='Any context'?'':c)?'checked':''}><span>${c==='Any context'?'Show resources for every context':c}</span></label>`).join('')}</fieldset>`;
+  } else {
+    body=`<fieldset aria-describedby="fErr layerHelp">${tag('rdoLayer · Radio')}<legend>Which layer would you like to start from?</legend>
+      <p class="muted" id="layerHelp">This is where to start reading, not a rating. Every resource links up and down the pyramid.</p>
+      ${[['','All three layers','See the whole picture, Foundations first'],['Foundations','Foundations','Core practice and accessible resources'],['Inclusion','Inclusion','Adapting practice so every learner progresses'],['Innovation','Innovation','Learners leading more of the learning']]
+        .map(([v,t,d])=>`<label class="opt"><input type="radio" name="lay" value="${v}" ${(st.layer||'')===v?'checked':''}><span>${t}<small>${d}</small></span></label>`).join('')}</fieldset>`;
+  }
+  return `<h2 id="scrH" tabindex="-1">${tag('lblFinder · Label (Role: Heading 2)')}Find by situation</h2>
+   <p class="lead">Three short questions. Nothing is saved about you.</p>
+   ${stepper}
+   <form data-form="finder" novalidate>${body}
+     <p class="err" id="fErr" role="alert"></p>
+     <div class="row" style="margin-top:12px">
+       ${st.fStep>1?`${tag('btnBack · Button')}<button type="button" class="btn sec" data-act="fBack">Back</button>`:''}
+       ${tag('btnNext · Button')}<button type="submit" class="btn">${st.fStep<3?'Next':'Show resources'}</button></div>
+   </form>`;
+}
+
+function scrBrowse(){
+  const list=results();
+  const sel=(id,label,opts,val,ctl,all)=>`<div class="field">${tag(ctl+' · Dropdown')}<label for="${id}">${label}</label><select id="${id}" data-filter="${id}"><option value="">${all}</option>${opts.map(o=>`<option ${o===val?'selected':''}>${esc(o)}</option>`).join('')}</select></div>`;
+  const chips=[];
+  if(st.situation) chips.push(['situation',`Situation: ${sitById(st.situation).title}`]);
+  if(st.block) chips.push(['block',`Building block: ${blockById(st.block).title}`]);
+  return `<h2 id="scrH" tabindex="-1">${tag('lblBrowse · Label (Role: Heading 2)')}Browse practice</h2>
+   <form class="filterbar" data-form="filters" role="search" aria-label="Filter resources">
+     ${chips.length?`<div class="activefilter">${chips.map(([k,t])=>`${tag('btnClearChip · Button')}<button type="button" class="btn sm sec" data-clear="${k}">${esc(t)}<span aria-hidden="true"> ✕</span><span class="sr-only">, remove this filter</span></button>`).join('')}</div>`:''}
+     <div class="row">
+       ${sel('layer','Layer',DATA.levels,st.layer,'ddLayer','All layers')}
+       ${sel('context','Teaching context',DATA.contexts.slice(1),st.context,'ddContext','Any context')}
+       <div class="field">${tag('txtSearch · Text input')}<label for="search">Keyword</label><input id="search" type="text" value="${esc(st.search)}" autocomplete="off"></div>
+       ${tag('btnApply · Button')}<button class="btn" type="submit">Apply</button>
+       ${tag('btnReset · Button')}<button class="btn sec" type="button" data-act="reset">Reset</button>
+     </div></form>
+   <p role="status" style="margin:0 0 12px;font-weight:600">${tag('lblCount · Label (Live: Polite)')}${list.length} resource${list.length===1?'':'s'}</p>
+   ${list.length?`${tag('galCards · Vertical gallery')}<ul class="gal">${list.map(tile).join('')}</ul>`:`<p>${tag('lblEmpty · Label')}No resources match. Try removing a filter.</p>`}`;
+}
+
+function scrBlocks(){
+  const L=st.blockLayer, intro=DATA.levelIntro[L], list=DATA.blocks.filter(b=>b.level===L);
+  return `<h2 id="scrH" tabindex="-1">${tag('lblBlocks · Label (Role: Heading 2)')}Building blocks</h2>
+   <p class="lead">The Digital Learning Pyramid builds from the bottom up. Choose a layer to see what it is made of.</p>
+   ${tag('galPyramid · Gallery of Buttons')}<ul class="pyramid" aria-label="Pyramid layers">${['Innovation','Inclusion','Foundations'].map(l=>`<li><button class="p-${l}" data-layer="${l}" aria-pressed="${L===l}">${l}</button></li>`).join('')}</ul>
+   <h3>${tag('lblLayer · Label (Role: Heading 3)')}${L}</h3>
+   <p>${tag('lblLayerSummary · Label')}${esc(intro.summary)}</p>
+   <div class="research">${tag('lblResearch · Label')}<p><strong>The research:</strong> ${esc(intro.research)}</p></div>
+   ${tag('galBlocks · Gallery')}<ul class="blocks">${list.map(b=>{const n=DATA.cards.filter(c=>c.block===b.id).length;
+     return `<li><h4>${tag('lblBlockTitle · Label (Role: Heading 4)')}${esc(b.title)}</h4><p>${esc(b.desc)}</p>
+     ${n?`${tag('btnBlockCards · Button')}<button class="btn sm sec" data-block="${b.id}">See ${n} resource${n===1?'':'s'}<span class="sr-only"> for ${esc(b.title)}</span></button>`:`<p class="muted">${tag('lblNoCards · Label')}Resources coming soon.</p>`}</li>`;}).join('')}</ul>
+   <p class="note">${tag('lblPyramidNote · Label')}${esc(DATA.pyramidNote)}</p>`;
+}
+
+function videoBlock(c){
+  const v=c.video; if(!v) return '';
+  const player=v.source==='YouTube'
+    ? `<iframe src="https://www.youtube-nocookie.com/embed/${v.id}" title="Video: ${esc(v.title)}" loading="lazy" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe>`
+    : `<video controls preload="metadata" aria-label="Video: ${esc(v.title)} (no sound)"><source src="${v.url}" type="video/mp4"></video>`;
+  return `<div>${tag(c.video.source==='YouTube'?'vidYouTube · Video (Media: VideoLink)':'strLibrary · Stream (preview)')}<div class="video">${player}</div>
+    <p class="vidcap">${tag('lblVideoCredit · Label')}${esc(v.title)} · ${esc(v.channel)}${v.source==='YouTube'?' · YouTube, captions available in the player':''}</p>
+    ${v.note?`<p class="vidnote">${tag('lblVideoNote · Label')}${esc(v.note)} ${tag('btnTranscript · Button (Launch)')}<a href="${v.transcript}">Open the text alternative</a></p>`:''}</div>`;
+}
+
+function scrCard(){
+  const c=st.card, blk=blockById(c.block);
+  const lensRows=s=>LENS.map(([k,t])=>st.lens[k]?`<p class="lens L-${k}">${tag('lbl'+t.replace(/ /g,'')+' · Label (Visible: toggle)')}<b>${t}:</b>${esc(s[k])}</p>`:'').join('');
+  const groups=['How-to guide','Microsoft guide','Standard','Research','Explore further'];
+  const links=groups.flatMap(g=>c.links.filter(l=>l.type===g));
+  const down=c.down?cardById(c.down):null, up=c.up?cardById(c.up):null;
+  return `${tag('btnBack · Button (Back())')}<button class="btn sm sec" data-act="back">Back</button>
+  <div class="cardhead">
+    <ul class="meta" aria-label="Tags" style="margin-top:12px">${tag('lblTags · Label')}<li>${badge(c.level)}</li><li class="pill">${c.context}</li><li class="pill">${esc(blk.title)}</li></ul>
+    <h2 id="scrH" tabindex="-1">${tag('lblCardTitle · Label (Role: Heading 2)')}${esc(c.title)}</h2>
+    <p class="lead" style="margin:0">${tag('lblSummary · Label')}${esc(c.summary)}</p>
+  </div>
+  <div class="twocol">
+    <div>
+      <h3 style="margin-top:0">${tag('lblWhyHead · Label (Role: Heading 3)')}Why it works</h3>
+      <p>${tag('lblWhy · Label')}${esc(c.why)}</p>
+      <p class="muted">${tag('lblFrameworks · Label')}<strong>Frameworks:</strong> ${esc(c.frameworks)}</p>
+      <p class="muted"><strong>Answers the situation:</strong> ${c.situations.map(s=>esc(sitById(s).title)).join('; ')}</p>
+    </div>
+    ${videoBlock(c)}
+  </div>
+
+  <div class="toggles" role="group" aria-labelledby="lensHead">
+    <p id="lensHead" style="margin:0 0 4px;font-weight:700">Show on every step</p>
+    <div class="row">${LENS.map(([k,t,ctl])=>`${tag(ctl+' · Toggle')}<button class="switch" role="switch" aria-checked="${st.lens[k]}" data-lens="${k}"><span class="track" aria-hidden="true"></span>${t}</button>`).join('')}</div>
+  </div>
+  <h3>${tag('lblStepsHead · Label (Role: Heading 3)')}How to do it</h3>
+  ${tag('galSteps · Flexible height gallery (Items: Card Steps)')}<ol class="steps">${c.steps.map(s=>`<li><h4>${esc(s.action)}</h4>${lensRows(s)}</li>`).join('')}</ol>
+
+  ${c.prompt?`<div class="panel"><h3>${tag('lblPromptHead · Label (Role: Heading 3)')}Prompt to copy</h3><p class="prompt">${tag('lblPrompt · Label')}${esc(c.prompt)}</p>
+    ${tag('btnCopy · Button (Copy())')}<button class="btn sm" data-act="copy">Copy prompt</button><p class="status" role="status">${st.copyMsg}</p></div>`:''}
+
+  <div class="panel">${tag('conWatch · Container')}<h3>Watch out for</h3><ul>${c.watch.map(w=>`<li>${esc(w)}</li>`).join('')}</ul></div>
+
+  <div class="panel">${tag('conPractice · Container')}<h3>Practice scenario</h3>
+    <p>${tag('lblScenario · Label')}${esc(c.scenario)}</p>
+    ${tag('btnAnswer · Button (UpdateContext)')}<button class="btn sm sec" data-act="answer" aria-expanded="${st.showAnswer}" aria-controls="answer">${st.showAnswer?'Hide':'Show'} a model answer</button>
+    <div id="answer" ${st.showAnswer?'':'hidden'}><p style="margin-top:10px">${tag('lblAnswer · Label (Visible: locShowAnswer)')}<strong>Model answer:</strong> ${esc(c.answer)}</p></div>
+  </div>
+
+  ${c.supports.length?`<h3>${tag('lblSupportsHead · Label (Role: Heading 3)')}Foundations and inclusion built into this project</h3>
+    ${tag('galSupports · Gallery')}<ul class="gal">${c.supports.map(id=>tile(cardById(id))).join('')}</ul>`:''}
+
+  <h3>${tag('lblLinksHead · Label (Role: Heading 3)')}Guides, research and further reading</h3>
+  ${tag('galLinks · Gallery (Items: Card Links)')}<ul class="links">${links.map(l=>`<li><span class="ltype">${l.type}</span>${l.url?`<a href="${l.url}">${esc(l.title)}</a>`:`<span>${esc(l.title)}</span>`}</li>`).join('')}</ul>
+
+  ${(down||up)?`<h3>${tag('lblNextHead · Label (Role: Heading 3)')}Move through the pyramid</h3><div class="nextrow">
+    ${down?`${tag('btnStepDown · Button')}<button class="btn sec" data-open="${down.id}"><small>Step back to ${down.level}</small>${esc(down.title)}</button>`:'<span></span>'}
+    ${up?`${tag('btnStepUp · Button')}<button class="btn" data-open="${up.id}"><small>Step up to ${up.level}</small>${esc(up.title)}</button>`:''}</div>`:''}`;
+}
+
+/* ---------------- Build notes (Power Fx) ---------------- */
+const NOTES={
+ home:`// App.OnStart: load the lists once, so every filter runs locally
+ClearCollect(colCards, 'Resource Cards');
+ClearCollect(colBlocks, 'Building Blocks');
+ClearCollect(colSituations, 'Situations');
+Set(varTraditional, true); Set(varDigital, true);
+Set(varAccessibility, true); Set(varInclusive, true)
+
+// Route buttons
+btnFinder.OnSelect = Navigate(scrFinder)
+btnBrowse.OnSelect = Navigate(scrBrowse)
+btnBlocks.OnSelect = Navigate(scrBlocks)
+
+// Every heading is a Label with Role = TextRole.Heading2 (or 3, 4)`,
+ finder:`rdoSituation.Items = SortByColumns(colSituations, "SortOrder")
+rdoSituation.Fields  = Title
+
+btnNext.OnSelect =
+  If(IsBlank(rdoSituation.Selected),
+     Set(varFinderError, "Choose one option to continue."),
+     Set(varSituation, rdoSituation.Selected.SituationID);
+     Set(varFinderStep, 2))
+
+// Step 3, after rdoLayer:
+btnShow.OnSelect =
+  Set(varContext, rdoContext.Selected.Value);
+  Set(varLayer, rdoLayer.Selected.Value);
+  Navigate(scrBrowse)
+
+lblError.Live = Live.Assertive   // announced by screen readers`,
+ browse:`galCards.Items =
+  SortByColumns(
+    Filter(colCards,
+      (IsBlank(varSituation) || varSituation in SituationIDs) &&
+      (IsBlank(ddLayer.Selected.Value) || Level.Value = ddLayer.Selected.Value) &&
+      (IsBlank(ddContext.Selected.Value) ||
+         Context.Value = ddContext.Selected.Value || Context.Value = "Any context") &&
+      (IsBlank(varBlock) || BlockID = varBlock) &&
+      (IsBlank(txtSearch.Text) ||
+         txtSearch.Text in Title || txtSearch.Text in Keywords)),
+    "LevelOrder")
+
+// colCards is a local collection, so "in" causes no delegation warning.
+lblCount.Text = CountRows(galCards.AllItems) & " resources"
+lblCount.Live = Live.Polite
+
+btnOpen.OnSelect = Set(varCard, ThisItem); Navigate(scrCard)`,
+ blocks:`galPyramid.Items = ["Innovation", "Inclusion", "Foundations"]
+btnLayer.Width    = Parent.Width * Switch(ThisItem.Value,
+                      "Innovation", 0.46, "Inclusion", 0.73, 1)
+btnLayer.OnSelect = Set(varBlockLayer, ThisItem.Value)
+
+galBlocks.Items =
+  SortByColumns(Filter(colBlocks, Level.Value = varBlockLayer), "SortOrder")
+
+btnBlockCards.Text =
+  "See " & CountRows(Filter(colCards, BlockID = ThisItem.BlockID)) & " resources"
+btnBlockCards.OnSelect =
+  Set(varBlock, ThisItem.BlockID); Navigate(scrBrowse)`,
+ card:`galSteps.Items =
+  SortByColumns(Filter('Card Steps', CardID = varCard.CardID), "StepNo")
+
+// The four lenses: each Label is hidden by its Toggle
+lblTraditional.Visible    = tglTraditional.Value
+lblDigital.Visible        = tglDigital.Value
+lblAccessibility.Visible  = tglAccessibility.Value
+lblInclusive.Visible      = tglInclusive.Value
+
+// YouTube videos: classic Video control
+vidYouTube.Visible         = varCard.VideoSource = "YouTube"
+vidYouTube.Media           = varCard.VideoLink
+vidYouTube.AccessibleLabel = "Video: " & varCard.VideoTitle
+vidYouTube.AutoStart       = false; vidYouTube.ShowControls = true
+
+// Library videos: Stream control (preview), embed URL from Stream on SharePoint
+strLibrary.Visible   = varCard.VideoSource = "Library"
+strLibrary.StreamUrl = varCard.VideoLink   // the ...UniqueId= embed URL
+
+btnTranscript.Visible  = !IsBlank(varCard.TranscriptLink)
+btnTranscript.OnSelect = Launch(varCard.TranscriptLink)
+
+btnAnswer.OnSelect = UpdateContext({locShowAnswer: !locShowAnswer})
+lblAnswer.Visible  = locShowAnswer
+btnCopy.OnSelect   = Copy(varCard.PromptText)
+btnCopy.Visible    = !IsBlank(varCard.PromptText)
+
+galLinks.Items  = SortByColumns(Filter('Card Links', CardID = varCard.CardID), "SortOrder")
+btnLink.OnSelect = Launch(ThisItem.URL)
+
+btnStepUp.OnSelect =
+  Set(varCard, LookUp(colCards, CardID = varCard.StepUpID));
+  UpdateContext({locShowAnswer: false})`
+};
+
+/* ---------------- Render ---------------- */
+function render(focusSel){
+  const body={home:scrHome,finder:scrFinder,browse:scrBrowse,blocks:scrBlocks,card:scrCard}[st.scr]();
+  const scrName='scr'+st.scr[0].toUpperCase()+st.scr.slice(1);
+  app.innerHTML=nav()+`<div class="scr">${tag(scrName+' · Screen')}${body}</div>`;
+  notes.innerHTML=`<p>Screen: <strong>${scrName}</strong>. Data comes from the SharePoint lists in the <a href="https://github.com/GWC25/learning-power-app-example/tree/main/lists">lists folder</a>.</p><pre><code>${esc(NOTES[st.scr])}</code></pre>`;
+  if(!first){const el=focusSel?app.querySelector(focusSel):document.getElementById('scrH'); if(el) el.focus();}
+  first=false;
+}
+function go(scr){
+  if(scr!=='card'){st.from=scr;}
+  st.scr=scr; render();
+  if(!first) app.scrollIntoView({block:'start'});
+}
+function openCard(id){
+  if(st.scr!=='card') st.from=st.scr;
+  st.card=cardById(id); st.showAnswer=false; st.copyMsg=''; st.scr='card'; render();
+  app.scrollIntoView({block:'start'});
+}
+
+app.addEventListener('click',e=>{
+  const n=e.target.closest('[data-nav]');
+  if(n){const k=n.dataset.nav;
+    if(k==='finder'){st.fStep=1;}
+    if(k==='browse'){st.situation='';st.block='';}
+    return go(k);}
+  const o=e.target.closest('[data-open]'); if(o) return openCard(o.dataset.open);
+  const l=e.target.closest('[data-layer]'); if(l){st.blockLayer=l.dataset.layer;return render(`[data-layer="${l.dataset.layer}"]`);}
+  const b=e.target.closest('[data-block]'); if(b){st.situation='';st.layer='';st.context='';st.search='';st.block=b.dataset.block;return go('browse');}
+  const s=e.target.closest('[data-lens]'); if(s){const k=s.dataset.lens;st.lens[k]=!st.lens[k];return render(`[data-lens="${k}"]`);}
+  const c=e.target.closest('[data-clear]'); if(c){st[c.dataset.clear]='';return render('#layer');}
+  const a=e.target.closest('[data-act]'); if(!a) return;
+  const act=a.dataset.act;
+  if(act==='fBack'){st.fStep--;render('legend');}
+  else if(act==='reset'){st.situation='';st.layer='';st.context='';st.search='';st.block='';render('#layer');}
+  else if(act==='back'){go(st.from);}
+  else if(act==='answer'){st.showAnswer=!st.showAnswer;render('[data-act="answer"]');}
+  else if(act==='copy'){try{navigator.clipboard&&navigator.clipboard.writeText(st.card.prompt);}catch(err){} st.copyMsg='Prompt copied. Paste it into Copilot Chat.';render('[data-act="copy"]');}
+});
+app.addEventListener('submit',e=>{
+  e.preventDefault();
+  const f=e.target.dataset.form;
+  if(f==='finder'){
+    const name=['sit','ctx','lay'][st.fStep-1];
+    const sel=e.target.querySelector(`input[name="${name}"]:checked`);
+    if(!sel){document.getElementById('fErr').textContent='Choose one option to continue.';e.target.querySelector('input[type=radio]').focus();return;}
+    if(st.fStep===1){st.situation=sel.value;st.fStep=2;render('legend');}
+    else if(st.fStep===2){st.context=sel.value;st.fStep=3;render('legend');}
+    else {st.layer=sel.value;st.block='';st.search='';go('browse');}
+  } else if(f==='filters'){
+    st.layer=document.getElementById('layer').value;
+    st.context=document.getElementById('context').value;
+    st.search=document.getElementById('search').value.trim();
+    render('[data-form="filters"] button[type=submit]');
+  }
+});
+// legends are not focusable by default; give the finder legend a focus target
+const _render=render;
+render=function(sel){_render(sel==='legend'?null:sel);
+  if(sel==='legend'){const lg=app.querySelector('legend'); if(lg){lg.setAttribute('tabindex','-1');lg.focus();}}};
+document.getElementById('ctlToggle').addEventListener('change',e=>document.body.classList.toggle('show-ctl',e.target.checked));
+render();
+</script>
+</body>
+</html>
